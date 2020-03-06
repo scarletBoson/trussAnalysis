@@ -1,0 +1,25 @@
+%j is joints and m is member number
+j = input('Enter the number of joints: ');
+m = input('Enter the number of members: '); 
+
+%define the connection matrix a 1 is placed in the joint row and member 
+%column where there is a connection
+c = zeros(j,m);
+quit = 0;
+
+%replace zeros with ones whereever there are conections
+
+while strcmpi(quit,"n")
+r = input('enter the joints numbers that have connections: ');
+c(r) = 1;
+quit = input('Do you want to quit? Y/N: ');
+end
+
+%sum the columns of the connection matrix, the result should be 2 as each
+%member should only be connected to two joints
+
+cSum = sum(c);
+
+%construct a connection matrix for the support forces along each axis with
+%j rows and 3 columns 
+
